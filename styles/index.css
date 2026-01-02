@@ -120,6 +120,8 @@ ul {
     overflow-y: auto;
     box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-nav:hover {
@@ -132,18 +134,26 @@ ul {
 
 /* Logo mejorado */
 .sidebar-nav .logo {
-    padding: 20px 15px;
+    padding: 25px 15px;
     border-bottom: 1px solid #eee;
     white-space: nowrap;
     overflow: hidden;
     background-color: var(--sidebar-bg);
+    flex-shrink: 0;
 }
 
 .sidebar-nav .logo-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 0;
     transition: var(--transition);
+    position: relative;
+}
+
+.sidebar-nav:hover .logo-content {
+    justify-content: flex-start;
+    gap: 15px;
 }
 
 .sidebar-nav .logo i {
@@ -159,11 +169,13 @@ ul {
     transition: var(--transition);
     opacity: 0;
     width: 0;
+    height: 0;
 }
 
 .sidebar-nav:hover .logo-text {
     opacity: 1;
     width: auto;
+    height: auto;
 }
 
 .sidebar-nav .logo h1 {
@@ -183,6 +195,8 @@ ul {
 /* Navegación */
 .sidebar-nav nav {
     padding: 20px 0;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .sidebar-nav ul {
@@ -203,6 +217,11 @@ ul {
     white-space: nowrap;
     overflow: hidden;
     border-left: 3px solid transparent;
+    justify-content: center;
+}
+
+.sidebar-nav:hover li a {
+    justify-content: flex-start;
 }
 
 .sidebar-nav li a:hover {
@@ -217,7 +236,7 @@ ul {
 }
 
 .sidebar-nav li a i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     min-width: 40px;
     text-align: center;
     color: var(--icon-color);
@@ -233,7 +252,7 @@ ul {
     display: none;
     font-weight: 500;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease 0.1s;
 }
 
 .sidebar-nav:hover li a span {
@@ -282,33 +301,39 @@ ul {
     display: none;
 }
 
-/* Iconos de carrito y usuario en menú lateral */
+/* Iconos de carrito y usuario en menú lateral - CORREGIDOS */
 .sidebar-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     border-top: 1px solid #eee;
     padding: 15px 0;
     background-color: var(--sidebar-bg);
+    flex-shrink: 0;
 }
 
 .sidebar-icons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 0 20px;
+    gap: 8px;
+    padding: 0;
 }
 
 .sidebar-icons a {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
+    padding: 12px 0;
     color: var(--text-color);
     transition: var(--transition);
     white-space: nowrap;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 0;
+    justify-content: center;
+    position: relative;
+}
+
+.sidebar-nav:hover .sidebar-icons a {
+    justify-content: flex-start;
+    padding: 12px 20px;
 }
 
 .sidebar-icons a:hover {
@@ -317,7 +342,7 @@ ul {
 }
 
 .sidebar-icons a i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     min-width: 40px;
     text-align: center;
     color: var(--icon-color);
@@ -333,7 +358,7 @@ ul {
     display: none;
     font-weight: 500;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease 0.1s;
 }
 
 .sidebar-nav:hover .sidebar-icons a span {
@@ -341,36 +366,90 @@ ul {
     opacity: 1;
 }
 
-/* Contador del carrito en menú lateral */
+/* Contador del carrito en menú lateral - CORREGIDO */
 .cart-icon-sidebar {
     position: relative;
 }
 
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 8px;
+    right: 8px;
     background-color: var(--accent-color);
     color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     font-size: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    transition: var(--transition);
+    z-index: 10;
 }
 
+/* Posición del contador cuando el menú está expandido */
 .sidebar-nav:hover .cart-count {
-    right: 10px;
+    top: 8px;
+    right: 20px;
+}
+
+/* Tooltips para los iconos del carrito y usuario cuando el menú está contraído */
+.sidebar-icons .nav-tooltip {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 100;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.sidebar-icons .nav-tooltip::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent var(--primary-color) transparent transparent;
+}
+
+.sidebar-icons a:hover .nav-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+.sidebar-nav:hover .sidebar-icons a .nav-tooltip {
+    display: none;
+}
+
+/* Tooltips específicos para cada icono */
+.user-icon .nav-tooltip {
+    content: "Mi Cuenta";
+}
+
+.cart-icon-sidebar .nav-tooltip {
+    content: "Carrito";
 }
 
 /* Main Content */
 .main-content {
     transition: var(--transition);
     min-height: 100vh;
-    padding-top: 0; /* Eliminamos el padding porque ya no hay header */
+    padding-top: 0;
 }
 
 /* Hero Section */
@@ -910,7 +989,8 @@ footer {
     }
     
     /* Tooltips más visibles en móviles */
-    .sidebar-nav li .nav-tooltip {
+    .sidebar-nav li .nav-tooltip,
+    .sidebar-icons a .nav-tooltip {
         font-size: 0.9rem;
         padding: 10px 15px;
     }
@@ -937,12 +1017,10 @@ footer {
         font-size: 1.8rem;
     }
     
-    .sidebar-nav li a i {
-        font-size: 1.1rem;
-    }
-    
+    .sidebar-nav li a i,
     .sidebar-icons a i {
         font-size: 1.1rem;
+        min-width: 35px;
     }
     
     .hero {
@@ -965,6 +1043,19 @@ footer {
         width: 100%;
         right: -100%;
     }
+    
+    .cart-count {
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+        top: 6px;
+        right: 6px;
+    }
+    
+    .sidebar-nav:hover .cart-count {
+        top: 6px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -973,15 +1064,23 @@ footer {
     }
     
     .sidebar-nav .logo {
-        padding: 15px 10px;
+        padding: 20px 10px;
     }
     
     .sidebar-nav li a {
+        padding: 12px 0;
+    }
+    
+    .sidebar-nav:hover li a {
         padding: 12px 15px;
     }
     
-    .sidebar-icons {
-        padding: 0 15px;
+    .sidebar-icons a {
+        padding: 10px 0;
+    }
+    
+    .sidebar-nav:hover .sidebar-icons a {
+        padding: 10px 15px;
     }
     
     .hero-content {
@@ -1005,8 +1104,8 @@ footer {
     }
     
     .cart-count {
-        width: 18px;
-        height: 18px;
-        font-size: 0.6rem;
+        width: 15px;
+        height: 15px;
+        font-size: 0.55rem;
     }
 }
