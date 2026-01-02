@@ -9,219 +9,260 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Cabecera -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1><i class="fas fa-spray-can-sparkles"></i> SHADDAI </h1>
-                <p class="tagline">Perfumes que inspiran emociones</p>
+    <!-- Menú lateral -->
+    <div class="sidebar-nav">
+        <!-- Logo mejorado -->
+        <div class="logo">
+            <div class="logo-content">
+                <i class="fas fa-spray-can-sparkles"></i>
+                <div class="logo-text">
+                    <h1>SHADDAI</h1>
+                    <p class="tagline">Perfumes que inspiran</p>
+                </div>
             </div>
-            
-            <!-- Navegación -->
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#categorias">Categorías</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Iconos del carrito y usuario -->
-            <div class="header-icons">
-                <a href="#" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
+        </div>
+        
+        <!-- Navegación -->
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="#inicio">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <div class="nav-tooltip">Inicio</div>
+                </li>
+                <li>
+                    <a href="#productos">
+                        <i class="fas fa-store"></i>
+                        <span>Productos</span>
+                    </a>
+                    <div class="nav-tooltip">Productos</div>
+                </li>
+                <li>
+                    <a href="#categorias">
+                        <i class="fas fa-tags"></i>
+                        <span>Categorías</span>
+                    </a>
+                    <div class="nav-tooltip">Categorías</div>
+                </li>
+                <li>
+                    <a href="#nosotros">
+                        <i class="fas fa-users"></i>
+                        <span>Nosotros</span>
+                    </a>
+                    <div class="nav-tooltip">Nosotros</div>
+                </li>
+                <li>
+                    <a href="#contacto">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contacto</span>
+                    </a>
+                    <div class="nav-tooltip">Contacto</div>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Carrito y usuario en menú lateral -->
+        <div class="sidebar-bottom">
+            <div class="sidebar-icons">
                 <a href="#" class="user-icon">
                     <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#" class="cart-icon-sidebar">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                    <span class="cart-count">0</span>
                 </a>
             </div>
         </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h2>Descubre tu fragancia perfecta</h2>
-            <p>Explora nuestra colección exclusiva de perfumes importados y nacionales</p>
-            <a href="#productos" class="btn">Ver Colección</a>
-        </div>
-    </section>
-    
-    <!-- Productos Destacados -->
-    <section class="featured-products" id="productos">
-        <div class="container">
-            <h2 class="section-title">Perfumes Destacados</h2>
-            <p class="section-subtitle">Las fragancias más vendidas de este mes</p>
-            
-            <div class="products-grid">
-                <!-- Producto 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Ébano Nocturno">
-                        <span class="product-label">Más vendido</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Ébano Nocturno</h3>
-                        <p class="product-description">Una fragancia intensa con notas de sándalo, pachulí y bergamota.</p>
-                        <div class="product-price">$89.99</div>
-                        <button class="add-to-cart" data-id="1">Añadir al carrito</button>
-                    </div>
-                </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h2>Descubre tu fragancia perfecta</h2>
+                <p>Explora nuestra colección exclusiva de perfumes importados y nacionales</p>
+                <a href="#productos" class="btn">Ver Colección</a>
+            </div>
+        </section>
+        
+        <!-- Productos Destacados -->
+        <section class="featured-products" id="productos">
+            <div class="container">
+                <h2 class="section-title">Perfumes Destacados</h2>
+                <p class="section-subtitle">Las fragancias más vendidas de este mes</p>
                 
-                <!-- Producto 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Brisa Marina">
-                        <span class="product-label new">Nuevo</span>
+                <div class="products-grid">
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Ébano Nocturno">
+                            <span class="product-label">Más vendido</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Ébano Nocturno</h3>
+                            <p class="product-description">Una fragancia intensa con notas de sándalo, pachulí y bergamota.</p>
+                            <div class="product-price">$89.99</div>
+                            <button class="add-to-cart" data-id="1">Añadir al carrito</button>
+                        </div>
                     </div>
-                    <div class="product-info">
-                        <h3>Brisa Marina</h3>
-                        <p class="product-description">Frescura oceánica con notas de sal marina, limón y algas.</p>
-                        <div class="product-price">$75.50</div>
-                        <button class="add-to-cart" data-id="2">Añadir al carrito</button>
+                    
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Brisa Marina">
+                            <span class="product-label new">Nuevo</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Brisa Marina</h3>
+                            <p class="product-description">Frescura oceánica con notas de sal marina, limón y algas.</p>
+                            <div class="product-price">$75.50</div>
+                            <button class="add-to-cart" data-id="2">Añadir al carrito</button>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Producto 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1543853123-59cdc82b13a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Rosa Dorada">
+                    
+                    <!-- Producto 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1543853123-59cdc82b13a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Rosa Dorada">
+                        </div>
+                        <div class="product-info">
+                            <h3>Rosa Dorada</h3>
+                            <p class="product-description">Elegancia floral con esencia de rosas búlgaras y vainilla.</p>
+                            <div class="product-price">$92.99</div>
+                            <button class="add-to-cart" data-id="3">Añadir al carrito</button>
+                        </div>
                     </div>
-                    <div class="product-info">
-                        <h3>Rosa Dorada</h3>
-                        <p class="product-description">Elegancia floral con esencia de rosas búlgaras y vainilla.</p>
-                        <div class="product-price">$92.99</div>
-                        <button class="add-to-cart" data-id="3">Añadir al carrito</button>
-                    </div>
-                </div>
-                
-                <!-- Producto 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Bosque Antiguo">
-                    </div>
-                    <div class="product-info">
-                        <h3>Bosque Antiguo</h3>
-                        <p class="product-description">Aroma terroso con notas de musgo, cedro y vetiver.</p>
-                        <div class="product-price">$84.75</div>
-                        <button class="add-to-cart" data-id="4">Añadir al carrito</button>
+                    
+                    <!-- Producto 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume Bosque Antiguo">
+                        </div>
+                        <div class="product-info">
+                            <h3>Bosque Antiguo</h3>
+                            <p class="product-description">Aroma terroso con notas de musgo, cedro y vetiver.</p>
+                            <div class="product-price">$84.75</div>
+                            <button class="add-to-cart" data-id="4">Añadir al carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Categorías -->
-    <section class="categories" id="categorias">
-        <div class="container">
-            <h2 class="section-title">Categorías</h2>
-            <p class="section-subtitle">Encuentra perfumes por tipo de fragancia</p>
-            
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <h3>Fragancias Femeninas</h3>
-                    <p>Perfumes florales, frutales y dulces</p>
-                </div>
+        </section>
+        
+        <!-- Categorías -->
+        <section class="categories" id="categorias">
+            <div class="container">
+                <h2 class="section-title">Categorías</h2>
+                <p class="section-subtitle">Encuentra perfumes por tipo de fragancia</p>
                 
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-male"></i>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3>Fragancias Femeninas</h3>
+                        <p>Perfumes florales, frutales y dulces</p>
                     </div>
-                    <h3>Fragancias Masculinas</h3>
-                    <p>Aromas amaderados, especiados y frescos</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-venus-mars"></i>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-male"></i>
+                        </div>
+                        <h3>Fragancias Masculinas</h3>
+                        <p>Aromas amaderados, especiados y frescos</p>
                     </div>
-                    <h3>Unisex</h3>
-                    <p>Fragancias para todos los géneros</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-gift"></i>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                        <h3>Unisex</h3>
+                        <p>Fragancias para todos los géneros</p>
                     </div>
-                    <h3>Ediciones Limitadas</h3>
-                    <p>Perfumes exclusivos y coleccionables</p>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Ediciones Limitadas</h3>
+                        <p>Perfumes exclusivos y coleccionables</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Sobre Nosotros -->
-    <section class="about" id="nosotros">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Nuestra Historia</h2>
-                    <p>Essence nació de la pasión por las fragancias que evocan emociones y crean recuerdos duraderos. Desde 2010, nos dedicamos a seleccionar los mejores perfumes nacionales e importados para nuestros clientes.</p>
-                    <p>Nuestro equipo de expertos en fragancias prueba cada producto para garantizar su calidad y durabilidad. Creemos que un buen perfume no solo es un aroma, es una extensión de tu personalidad.</p>
-                    <a href="#contacto" class="btn btn-outline">Contáctanos</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nuestra tienda de perfumes">
+        </section>
+        
+        <!-- Sobre Nosotros -->
+        <section class="about" id="nosotros">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Nuestra Historia</h2>
+                        <p>Essence nació de la pasión por las fragancias que evocan emociones y crean recuerdos duraderos. Desde 2010, nos dedicamos a seleccionar los mejores perfumes nacionales e importados para nuestros clientes.</p>
+                        <p>Nuestro equipo de expertos en fragancias prueba cada producto para garantizar su calidad y durabilidad. Creemos que un buen perfume no solo es un aroma, es una extensión de tu personalidad.</p>
+                        <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1590736969958-78c6f5b047b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nuestra tienda de perfumes">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Pie de página -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3><i class="fas fa-spray-can-sparkles"></i> SHADDAI</h3>
-                    <p>Tu destino para encontrar la fragancia perfecta. Calidad, elegancia y aromas inolvidables.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
+        </section>
+        
+        <!-- Pie de página -->
+        <footer id="contacto">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3><i class="fas fa-spray-can-sparkles"></i> SHADDAI</h3>
+                        <p>Tu destino para encontrar la fragancia perfecta. Calidad, elegancia y aromas inolvidables.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#productos">Productos</a></li>
+                            <li><a href="#categorias">Categorías</a></li>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> Calle Perfumada 123, Ciudad Aroma</li>
+                            <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                            <li><i class="fas fa-envelope"></i> info@essenceperfumes.com</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Newsletter</h4>
+                        <p>Suscríbete para recibir novedades y ofertas exclusivas</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">Suscribirse</button>
+                        </form>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#categorias">Categorías</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Contacto</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Calle Perfumada 123, Ciudad Aroma</li>
-                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
-                        <li><i class="fas fa-envelope"></i> info@essenceperfumes.com</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Newsletter</h4>
-                    <p>Suscríbete para recibir novedades y ofertas exclusivas</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Tu correo electrónico" required>
-                        <button type="submit">Suscribirse</button>
-                    </form>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 SHADDAI. Todos los derechos reservados.</p>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 SHADDAI. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
     
     <!-- Carrito flotante -->
     <div class="cart-sidebar">
@@ -252,8 +293,8 @@
         const totalAmount = document.querySelector('.total-amount');
         const emptyCartMsg = document.querySelector('.empty-cart');
         
-        // Abrir/cerrar carrito
-        document.querySelector('.cart-icon').addEventListener('click', function(e) {
+        // Abrir/cerrar carrito - ahora desde el menú lateral
+        document.querySelector('.cart-icon-sidebar').addEventListener('click', function(e) {
             e.preventDefault();
             cartSidebar.classList.add('open');
         });
@@ -353,7 +394,7 @@
         document.addEventListener('click', function(e) {
             if (cartSidebar.classList.contains('open') && 
                 !cartSidebar.contains(e.target) && 
-                !e.target.closest('.cart-icon')) {
+                !e.target.closest('.cart-icon-sidebar')) {
                 cartSidebar.classList.remove('open');
             }
         });
@@ -377,12 +418,88 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 20,
                         behavior: 'smooth'
                     });
                 }
             });
         });
+        
+        // Activación del menú lateral según la sección visible
+        function setActiveNavItem() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav nav li');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.querySelector('a').getAttribute('href').replace('#', '');
+                if (linkHref === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Escuchar el scroll para cambiar el elemento activo
+        window.addEventListener('scroll', setActiveNavItem);
+        setActiveNavItem(); // Ejecutar al cargar la página
+
+        // Corrección para el menú retráctil en móviles
+        function setupMobileMenu() {
+            const sidebarNav = document.querySelector('.sidebar-nav');
+            const body = document.body;
+            
+            if (window.innerWidth <= 992) {
+                // En móviles, hacer clic para expandir/contraer
+                sidebarNav.addEventListener('click', function(e) {
+                    // Solo expandir si se hace clic en el menú, no en los enlaces o iconos
+                    if (e.target.closest('a') || e.target.closest('.sidebar-icons')) {
+                        return; // Permitir que el enlace o icono funcione normalmente
+                    }
+                    
+                    if (!body.classList.contains('menu-expanded')) {
+                        body.classList.add('menu-expanded');
+                    } else {
+                        body.classList.remove('menu-expanded');
+                    }
+                });
+                
+                // Cerrar menú al hacer clic fuera
+                document.addEventListener('click', function(e) {
+                    if (body.classList.contains('menu-expanded') && 
+                        !sidebarNav.contains(e.target)) {
+                        body.classList.remove('menu-expanded');
+                    }
+                });
+                
+                // Cerrar menú al hacer clic en un enlace
+                document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        body.classList.remove('menu-expanded');
+                    });
+                });
+            } else {
+                // En desktop, restaurar comportamiento hover
+                body.classList.remove('menu-expanded');
+                sidebarNav.style.cursor = 'default';
+            }
+        }
+
+        // Inicializar al cargar
+        setupMobileMenu();
+
+        // Re-inicializar al cambiar tamaño de ventana
+        window.addEventListener('resize', setupMobileMenu);
     </script>
 </body>
 </html>
