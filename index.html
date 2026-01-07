@@ -11,6 +11,11 @@
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/9QxJ7Yl.png">
 </head>
 <body>
+    <!-- Botón de menú para móviles -->
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
     <!-- Menú lateral -->
     <div class="sidebar-nav">
         <!-- Logo mejorado -->
@@ -32,35 +37,30 @@
                         <i class="fas fa-home"></i>
                         <span>Inicio</span>
                     </a>
-                    <div class="nav-tooltip">Inicio</div>
                 </li>
                 <li>
                     <a href="#productos">
                         <i class="fas fa-store"></i>
                         <span>Productos</span>
                     </a>
-                    <div class="nav-tooltip">Productos</div>
                 </li>
                 <li>
                     <a href="#categorias">
                         <i class="fas fa-tags"></i>
                         <span>Categorías</span>
                     </a>
-                    <div class="nav-tooltip">Categorías</div>
                 </li>
                 <li>
                     <a href="#nosotros">
                         <i class="fas fa-users"></i>
                         <span>Nosotros</span>
                     </a>
-                    <div class="nav-tooltip">Nosotros</div>
                 </li>
                 <li>
                     <a href="#contacto">
                         <i class="fas fa-envelope"></i>
                         <span>Contacto</span>
                     </a>
-                    <div class="nav-tooltip">Contacto</div>
                 </li>
             </ul>
         </nav>
@@ -204,7 +204,7 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2 class="section-title">Nuestra Historia</h2>
-                        <p>Essence nació de la pasión por las fragancias que evocan emociones y crean recuerdos duraderos. Desde 2010, nos dedicamos a seleccionar los mejores perfumes nacionales e importados para nuestros clientes.</p>
+                        <p>Shaddai nació de la pasión por las fragancias que evocan emociones y crean recuerdos duraderos. Desde 2010, nos dedicamos a seleccionar los mejores perfumes nacionales e importados para nuestros clientes.</p>
                         <p>Nuestro equipo de expertos en fragancias prueba cada producto para garantizar su calidad y durabilidad. Creemos que un buen perfume no solo es un aroma, es una extensión de tu personalidad.</p>
                         <a href="#contacto" class="btn btn-outline">Contáctanos</a>
                     </div>
@@ -245,7 +245,7 @@
                         <ul class="contact-info">
                             <li><i class="fas fa-map-marker-alt"></i> Calle Perfumada 123, Ciudad Aroma</li>
                             <li><i class="fas fa-phone"></i> +1 234 567 890</li>
-                            <li><i class="fas fa-envelope"></i> info@essenceperfumes.com</li>
+                            <li><i class="fas fa-envelope"></i> info@shaddaiperfumes.com</li>
                         </ul>
                     </div>
                     
@@ -456,44 +456,44 @@
         window.addEventListener('scroll', setActiveNavItem);
         setActiveNavItem(); // Ejecutar al cargar la página
 
-        // Corrección para el menú retráctil en móviles
+        // Función para menú móvil simplificada
         function setupMobileMenu() {
             const sidebarNav = document.querySelector('.sidebar-nav');
-            const body = document.body;
+            const menuToggle = document.querySelector('.menu-toggle');
             
             if (window.innerWidth <= 992) {
-                // En móviles, hacer clic para expandir/contraer
-                sidebarNav.addEventListener('click', function(e) {
-                    // Solo expandir si se hace clic en el menú, no en los enlaces o iconos
-                    if (e.target.closest('a') || e.target.closest('.sidebar-icons')) {
-                        return; // Permitir que el enlace o icono funcione normalmente
-                    }
-                    
-                    if (!body.classList.contains('menu-expanded')) {
-                        body.classList.add('menu-expanded');
-                    } else {
-                        body.classList.remove('menu-expanded');
-                    }
+                // Mostrar botón de toggle en móviles
+                menuToggle.style.display = 'flex';
+                menuToggle.style.alignItems = 'center';
+                menuToggle.style.justifyContent = 'center';
+                
+                // Toggle del menú al hacer clic en el botón
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebarNav.classList.toggle('mobile-open');
                 });
                 
                 // Cerrar menú al hacer clic fuera
                 document.addEventListener('click', function(e) {
-                    if (body.classList.contains('menu-expanded') && 
-                        !sidebarNav.contains(e.target)) {
-                        body.classList.remove('menu-expanded');
+                    if (sidebarNav.classList.contains('mobile-open') && 
+                        !sidebarNav.contains(e.target) && 
+                        !e.target.closest('.menu-toggle')) {
+                        sidebarNav.classList.remove('mobile-open');
                     }
                 });
                 
                 // Cerrar menú al hacer clic en un enlace
                 document.querySelectorAll('.sidebar-nav a').forEach(link => {
                     link.addEventListener('click', function() {
-                        body.classList.remove('menu-expanded');
+                        sidebarNav.classList.remove('mobile-open');
                     });
                 });
             } else {
-                // En desktop, restaurar comportamiento hover
-                body.classList.remove('menu-expanded');
-                sidebarNav.style.cursor = 'default';
+                // Ocultar botón de toggle en desktop
+                menuToggle.style.display = 'none';
+                // Asegurar que el menú esté visible en desktop
+                sidebarNav.classList.remove('mobile-open');
+                sidebarNav.style.transform = '';
             }
         }
 
@@ -505,4 +505,3 @@
     </script>
 </body>
 </html>
-
