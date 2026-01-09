@@ -1,0 +1,352 @@
+/* Estilos específicos para la página de mantenimiento */
+.maintenance-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.maintenance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.maintenance-icon {
+    font-size: 5rem;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.maintenance-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.maintenance-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    line-height: 1.8;
+    max-width: 800px;
+}
+
+.maintenance-details {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    text-align: left;
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.maintenance-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.maintenance-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-top: 5px;
+    min-width: 30px;
+}
+
+.info-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.info-item p {
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.maintenance-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.maintenance-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.maintenance-list li i {
+    color: #2ecc71;
+    font-size: 1rem;
+}
+
+.progress-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.progress-container h4 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1s ease-in-out;
+}
+
+.progress-text {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.contact-options {
+    margin: 40px 0;
+    width: 100%;
+}
+
+.contact-options h3 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.option-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.option-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.option-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.option-card p {
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.countdown-container {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.countdown-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 15px;
+    border-radius: 10px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+.btn-notify {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-notify:hover {
+    background-color: #b68c27;
+    transform: translateY(-2px);
+}
+
+/* Responsividad para mantenimiento */
+@media (max-width: 992px) {
+    .maintenance-title {
+        font-size: 2.5rem;
+    }
+    
+    .maintenance-text {
+        font-size: 1.1rem;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        padding: 15px 10px;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .maintenance-title {
+        font-size: 2rem;
+    }
+    
+    .maintenance-icon {
+        font-size: 4rem;
+    }
+    
+    .maintenance-text {
+        font-size: 1rem;
+    }
+    
+    .maintenance-details {
+        padding: 20px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .countdown {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 15px 8px;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .maintenance-title {
+        font-size: 1.8rem;
+    }
+    
+    .maintenance-icon {
+        font-size: 3.5rem;
+    }
+    
+    .maintenance-container {
+        padding: 20px 10px;
+    }
+    
+    .countdown {
+        gap: 8px;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 12px 6px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
