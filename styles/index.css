@@ -122,6 +122,19 @@ ul {
     border-right: 1px solid #eee;
     display: flex;
     flex-direction: column;
+    /* Ocultar scrollbar pero mantener funcionalidad */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+}
+
+/* Ocultar scrollbar en Chrome, Safari y Opera */
+.sidebar-nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* ESTO ES IMPORTANTE: Prevenir que el menú se expanda accidentalmente */
+.sidebar-nav:not(:hover) {
+    width: var(--sidebar-collapsed) !important;
 }
 
 .sidebar-nav:hover {
@@ -132,6 +145,27 @@ ul {
     margin-left: calc(var(--sidebar-width) - var(--sidebar-collapsed));
 }
 
+/* Asegurar que no haya márgenes o paddings conflictivos */
+.sidebar-nav * {
+    box-sizing: border-box;
+}
+
+.sidebar-nav nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Corregir posibles problemas de altura */
+.sidebar-nav {
+    height: 100vh;
+    max-height: 100vh;
+}
+
 /* Logo mejorado */
 .sidebar-nav .logo {
     padding: 25px 15px;
@@ -140,6 +174,7 @@ ul {
     overflow: hidden;
     background-color: var(--sidebar-bg);
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .sidebar-nav .logo-content {
@@ -156,12 +191,29 @@ ul {
     gap: 15px;
 }
 
-.sidebar-nav .logo i {
+/* Estilos para el logo en el menú lateral */
+.logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+/* Mostrar el logo en lugar del icono */
+.sidebar-nav .logo-content .logo-image {
+    display: block;
     color: var(--icon-color);
     font-size: 2rem;
     min-width: 40px;
     text-align: center;
     transition: var(--transition);
+    margin-right: 0;
+}
+
+/* Cuando el menú se expande */
+.sidebar-nav:hover .logo-content .logo-image {
+    margin-right: 15px;
 }
 
 .sidebar-nav .logo-text {
@@ -170,12 +222,14 @@ ul {
     opacity: 0;
     width: 0;
     height: 0;
+    visibility: hidden;
 }
 
 .sidebar-nav:hover .logo-text {
     opacity: 1;
     width: auto;
     height: auto;
+    visibility: visible;
 }
 
 .sidebar-nav .logo h1 {
@@ -252,12 +306,14 @@ ul {
     display: none;
     font-weight: 500;
     opacity: 0;
-    transition: opacity 0.3s ease 0.1s;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
 }
 
 .sidebar-nav:hover li a span {
     display: inline-block;
     opacity: 1;
+    visibility: visible;
 }
 
 /* Tooltips para estado contraído */
@@ -309,6 +365,7 @@ ul {
     padding: 15px 0;
     background-color: var(--sidebar-bg);
     flex-shrink: 0;
+    margin-top: auto;
 }
 
 .sidebar-icons {
@@ -358,12 +415,14 @@ ul {
     display: none;
     font-weight: 500;
     opacity: 0;
-    transition: opacity 0.3s ease 0.1s;
+    visibility: hidden;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
 }
 
 .sidebar-nav:hover .sidebar-icons a span {
     display: inline-block;
     opacity: 1;
+    visibility: visible;
 }
 
 /* Contador del carrito en menú lateral - CORREGIDO */
@@ -687,9 +746,20 @@ footer {
     font-size: 1.3rem;
 }
 
-.footer-column h3 i {
-    color: var(--accent-color);
+/* Estilos para el logo en el footer */
+.footer-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
     margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Asegurar que el texto del footer se alinee con el logo */
+.footer-column h3 {
+    display: flex;
+    align-items: center;
 }
 
 .footer-column p {
@@ -941,22 +1011,26 @@ footer {
     opacity: 1;
 }
 
-/* Responsividad */
+/* Responsividad - CORREGIDO */
 @media (max-width: 992px) {
     body {
         margin-left: var(--sidebar-collapsed);
     }
     
     .sidebar-nav {
-        width: var(--sidebar-collapsed);
+        width: var(--sidebar-collapsed) !important;
+        cursor: pointer;
+        transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow: hidden !important;
     }
     
+    /* IMPORTANTE: Desactivar hover en móviles */
     .sidebar-nav:hover {
-        width: var(--sidebar-width);
+        width: var(--sidebar-collapsed) !important;
     }
     
     .sidebar-nav:hover ~ .main-content {
-        margin-left: calc(var(--sidebar-width) - var(--sidebar-collapsed));
+        margin-left: 0 !important;
     }
     
     .hero h2 {
@@ -976,16 +1050,41 @@ footer {
     }
     
     /* Para móviles: menú con clic en lugar de hover */
-    .sidebar-nav {
-        transition: width 0.4s ease;
-    }
-    
     body.menu-expanded .sidebar-nav {
-        width: var(--sidebar-width);
+        width: var(--sidebar-width) !important;
+        overflow-y: auto !important;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
     }
     
     body.menu-expanded .sidebar-nav ~ .main-content {
         margin-left: calc(var(--sidebar-width) - var(--sidebar-collapsed));
+    }
+    
+    /* Asegurar que el contenido se oculte cuando el menú esté contraído */
+    body:not(.menu-expanded) .logo-text,
+    body:not(.menu-expanded) li a span,
+    body:not(.menu-expanded) .sidebar-icons a span {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Forzar que los íconos se centren en móviles cuando el menú está contraído */
+    body:not(.menu-expanded) .sidebar-nav li a,
+    body:not(.menu-expanded) .sidebar-icons a {
+        justify-content: center !important;
+    }
+    
+    body:not(.menu-expanded) .sidebar-nav li a i,
+    body:not(.menu-expanded) .sidebar-icons a i {
+        margin-right: 0 !important;
+    }
+    
+    /* Ajustes del logo para móviles */
+    body:not(.menu-expanded) .logo-image {
+        margin-right: 0 !important;
     }
     
     /* Tooltips más visibles en móviles */
@@ -1006,15 +1105,21 @@ footer {
     }
     
     .sidebar-nav {
-        width: var(--sidebar-collapsed);
+        width: var(--sidebar-collapsed) !important;
     }
     
     .main-content {
         margin-left: 0;
     }
     
-    .sidebar-nav .logo i {
+    .sidebar-nav .logo-content .logo-image {
         font-size: 1.8rem;
+        min-width: 35px;
+    }
+    
+    .logo-image {
+        width: 35px;
+        height: 35px;
     }
     
     .sidebar-nav li a i,
@@ -1052,9 +1157,20 @@ footer {
         right: 6px;
     }
     
-    .sidebar-nav:hover .cart-count {
+    body.menu-expanded .cart-count {
+        top: 8px;
+        right: 20px;
+    }
+    
+    body:not(.menu-expanded) .cart-count {
         top: 6px;
-        right: 15px;
+        right: 6px;
+    }
+    
+    /* Ajustes del logo en footer para móviles */
+    .footer-logo {
+        width: 25px;
+        height: 25px;
     }
 }
 
@@ -1071,7 +1187,7 @@ footer {
         padding: 12px 0;
     }
     
-    .sidebar-nav:hover li a {
+    body.menu-expanded .sidebar-nav li a {
         padding: 12px 15px;
     }
     
@@ -1079,8 +1195,18 @@ footer {
         padding: 10px 0;
     }
     
-    .sidebar-nav:hover .sidebar-icons a {
+    body.menu-expanded .sidebar-icons a {
         padding: 10px 15px;
+    }
+    
+    /* Ajustes del logo para móviles pequeños */
+    .logo-image {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .sidebar-nav .logo-content .logo-image {
+        min-width: 30px;
     }
     
     .hero-content {
